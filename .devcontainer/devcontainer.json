@@ -33,7 +33,7 @@
 	//    * Windows PowerShell:
 	//        dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
 	//    * macOS/Linux terminal:
-	"postCreateCommand": "dotnet dev-certs https --trust",       
+	"postCreateCommand": ["dotnet dev-certs https --trust", "dotnet restore"],       
 	// 
 	// 2. Uncomment these 'remoteEnv' lines:
 	//    "remoteEnv": {
