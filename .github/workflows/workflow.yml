@@ -13,7 +13,8 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.21
-      - run: GOOS=linux GOARCH=amd64 go build -o playground ./...
+      - run: GOOS=linux GOARCH=amd64 go build -o playground 
+        working-directory: ./src
       - name: Create zip file
         run: |
           zip playground
