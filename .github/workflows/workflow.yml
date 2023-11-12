@@ -8,16 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout
       - name: Setup go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go
         with:
           go-version: 1.21
       - run: GOOS=linux GOARCH=amd64 go build -o ../build/playground 
         working-directory: src
       - name: Create zip file
-        run: |
-          zip playground
+        run: zip playground.zip playground
         working-directory: build
       - name: Create Release
         id: create_release
