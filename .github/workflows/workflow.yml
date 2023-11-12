@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: 1.21
-      - run: GOOS=linux GOARCH=amd64 go build -o ../build/playground 
+      - run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ../build/playground 
         working-directory: src
       - name: Create zip file
         run: zip playground.zip playground
