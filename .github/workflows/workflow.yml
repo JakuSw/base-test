@@ -13,11 +13,12 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.21
-      - run: GOOS=linux GOARCH=amd64 go build -o playground 
-        working-directory: ./src
+      - run: GOOS=linux GOARCH=amd64 go build -o ../build/playground 
+        working-directory: src
       - name: Create zip file
         run: |
           zip playground
+        working-directory: build
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
